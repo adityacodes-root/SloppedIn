@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "SloppedIn",
+  "version": "1.0.0",
+  "description": "Turn rough drafts into LinkedIn-style posts with Gemini.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "SloppedIn"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
